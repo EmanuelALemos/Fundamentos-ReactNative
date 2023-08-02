@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { Text, View , TextInput, TouchableOpacity, FlatList, Alert} from 'react-native';
-import { styles } from './styles';
+import { FlatList, Alert} from 'react-native';
+import { Container, EventName, EventLocal, Input,ButtonText, Button, Form, ListEmptyText } from './styles';
 import { Participant } from '../../components/Participant';
-import { isTemplateExpression } from 'typescript';
 
 export default function Home(){
     const [Rachas, setRachas] = useState([]);
     const [nomeRacha, setNomeRacha] = useState('');
     
     function handleParticipantAdd(){
-        if(nomeRacha === ''){
+        if(nomeRacha.trim().length === 0){
             return Alert.alert('Erro', 'Você não definiu um nome.');
         }
         if(Rachas.includes(nomeRacha)){
@@ -32,26 +31,25 @@ export default function Home(){
         ])
     }
     return(
-    <View style={styles.container}>
-        <Text style={styles.eventName}>
+    <Container>
+        <EventName>
             Racha dos professores.
-        </Text>
-        <Text style={styles.eventLocal}>
+        </EventName>
+        <EventLocal>
             UFC - Campus de Quixadá.
-        </Text>
-            <View style={styles.form}>
-                <TextInput 
-                    style={styles.input}
+        </EventLocal>
+            <Form>
+                <Input
                     placeholder='Crie aqui um novo racha'
                     onChangeText={setNomeRacha}
                     value = {nomeRacha}
                 />
-                <TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
-                    <Text style={styles.buttonText}>
+                <Button onPress={handleParticipantAdd}>
+                    <ButtonText>
                         OK
-                    </Text>
-                </TouchableOpacity>
-            </View>
+                    </ButtonText>
+                </Button>
+            </Form>
             <FlatList
                 data = {Rachas}
                 keyExtractor={item => item}
@@ -64,11 +62,11 @@ export default function Home(){
                 )}
                 showsVerticalScrollIndicator = {false}
                 ListEmptyComponent={() => (
-                    <Text style = {styles.ListEmptyText}>
+                    <ListEmptyText>
                         Ainda não há rachas cadastrados, marque um para começar a sua diversão.
-                    </Text>
+                    </ListEmptyText>
                 )}
             />
-    </View>
+    </Container>
   );
 }

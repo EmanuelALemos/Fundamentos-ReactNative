@@ -1,58 +1,58 @@
-import { StyleSheet } from "react-native"
-export const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#008080',
-      padding: 24
-    },
+import styled from 'styled-components/native';
+import { TextInput, TouchableOpacity } from 'react-native';
+
+    export const Container = styled.View`
+      flex: 1;
+      background-color: #008080;
+      padding: 24px;
+    `
   
-    eventName: {
-      color: 'white',
-      fontSize: 24,
-      fontWeight: 'bold',
-      marginTop: 48
-    },
+    export const EventName = styled.Text`
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 48px;
+    `
   
-    eventLocal: {
-      color: 'white',
-      fontSize: 18
-    },
+    export const EventLocal = styled.Text`
+      color: white;
+      font-size: 18px;
+    `
 
-    input: {
-        flex: 1,
-        height: 56,
-        backgroundColor: 'white',
-        borderRadius: 5,
-        color: 'black',
-        padding: 16,
-        fontSize: 18,
-        marginRight: 7
-    },
+    export const Input = styled(TextInput)`
+        flex: 1;
+        height: 56px;
+        background-color: white;
+        border-radius: 5px;
+        color: black;
+        padding: 16px;
+        font-size: 18px;
+        margin-right: 7px;
+    `
 
-    buttonText: {
-        color: 'white',
-        fontSize: 18
-    },
+    export const ButtonText = styled.Text`
+        color: white;
+        font-size: 18px;
+    `
 
-    button: {
-       width: 56,
-       height: 56, 
-       borderRadius: 5,
-       backgroundColor: 'green',
-       alignItems: 'center',
-       justifyContent: 'center'
-    },
+    export const Button = styled(TouchableOpacity)`
+       width: 56px;
+       height: 56px; 
+       border-radius: 5px;
+       background-color: green;
+       align-items: center;
+       justify-content: center;
+    `
 
-    form: {
-        width: '100%',
-        flexDirection: 'row',
-        marginTop: 36,
-        marginBottom: 42
-    },
+    export const Form = styled.View`
+        width: 100%;
+        flex-direction: row;
+        margin-top: 36px;
+        margin-bottom: 42px;
+    `
      
-    ListEmptyText: {
-      color: 'white',
-      fontSize: 16,
-      textAlign: 'center'
-    }
-  });
+    export const ListEmptyText = styled.Text`
+      color: white;
+      font-size: 16px;
+      text-align: center;
+    `
